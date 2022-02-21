@@ -1,0 +1,21 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: go-coba2
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      name: go-coba2
+  template:
+    metadata:
+      labels:
+        name: go-coba2
+    spec:
+      containers:
+      - name: application
+        image: dbp27/go-coba2
+        imagePullPolicy: IfNotPresent
+        ports:
+          - containerPort: 3000
